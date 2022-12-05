@@ -53,7 +53,7 @@ set "$appendDateTimeInFolderName=true"
 set "$assigneeUser=635fce5a76b91b62562edfc9"
 
 :: Fully-qualitified name of the test result file
-set "$resultPath=@\"C:/Users/canellasa/Documents/testtrainees\"
+set "$resultPath="@C:/Users/canellasa/Documents/testtrainees\"
 
 :: =========================================
 ::  Create an automation task, run it, send test results to Zephyr.
