@@ -1,5 +1,8 @@
-import requests
+import pytest
 
-x = requests.get('https://w3schools.com/python/demopage.htm')
+def inc(x):
+    return x + 1
 
-print(x.text)
+
+def test_answer():
+    assert inc(4) == 5
