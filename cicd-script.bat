@@ -38,7 +38,7 @@ echo %$finaljwt%
 set "$taskName=Test"
 set "$taskDescription=Execute an API with pytest "
 set "$automationFramework=junit"
-set "$projectKey=PLY-6507"
+set "$projectKey=PLYTEST"
 set "$versionName=Unscheduled"
 
 :: Cycle info
@@ -48,7 +48,7 @@ set "$appendDateTimeInCycleName=true"
 
 :: Folder info
 set "$folderName=testtrainees"
-set "$createNewFolder=false"
+set "$createNewFolder=true"
 set "$appendDateTimeInFolderName=true"
 set "$assigneeUser=635fce5a76b91b62562edfc9"
 
