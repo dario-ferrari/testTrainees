@@ -15,10 +15,10 @@ set "$zephyrBaseUrl=https://prod-api.zephyr4jiracloud.com/connect"
 ::  Replace the constants below with values relevant to your project and account.
 :: =========================================
 :: The accessKey and secretKey to access your project. You can find them in your Jira project: Zephyr > API Keys.
-set "$accessKey=ZGxhdHZhcmcuYXRsYXNzaWFuLm5ldCA2MzVmY2U1YjAxYzJmZjg0MmMxOTU0MjUgVVNFUl9ERUZBVUxUX05BTUU"
-set "$secretKey=uMogm2e7nQ2FUMVlSSCd6NtjeeazhDp44tP46KjyqgU"
+set "$accessKey=ZGxhdHZhcmcuYXRsYXNzaWFuLm5ldCA2MzVmY2U1YTc2YjkxYjYyNTYyZWRmYzkgVVNFUl9ERUZBVUxUX05BTUU"
+set "$secretKey=hmr72_WDTNdvmQQiWmbKxmpvc0zVJAfYUfeLgRb-bXg"
 :: Id of the user who will create the automation task. You can find it in Jira.
-set "$accountId=635fce5b01c2ff842c195425"
+set "$accountId=635fce5a76b91b62562edfc9"
 
 :: =========================================
 ::  Create a JSON Web Token  (required to access Zephyr for Jira).
@@ -38,7 +38,7 @@ echo %$finaljwt%
 set "$taskName=Test"
 set "$taskDescription=Execute an API with pytest "
 set "$automationFramework=junit"
-set "$projectKey=PLY-6507"
+set "$projectKey=PLY"
 set "$versionName=Unscheduled"
 
 :: Cycle info
@@ -48,12 +48,12 @@ set "$appendDateTimeInCycleName=true"
 
 :: Folder info
 set "$folderName=testtrainees"
-set "$createNewFolder=false"
+set "$createNewFolder=true"
 set "$appendDateTimeInFolderName=true"
 set "$assigneeUser=635fce5a76b91b62562edfc9"
 
 :: Fully-qualitified name of the test result file
-set "$resultPath=@\"C:\Users\ferrarid\Documents\TestTrainees\prueba.py\"
+set "$resultPath=@\"C:\Users\canellasa\Documents\testtrainees\result.xml\"
 
 :: =========================================
 ::  Create an automation task, run it, send test results to Zephyr.
@@ -73,8 +73,3 @@ curl -v -X POST  https://prod-vortexapi.zephyr4jiracloud.com/api/v1/automation/j
 ::  and then uncomment in the lines below.
 :: =========================================
 
-:: Id of your automation task. You get it after the task is created.
-:: set "$taskId=XXXXXXXXXXXXXXXXXXXX42E96E8863BF7EEE44BDB95FF763DA3E9C3BC4776886"
-
-:: echo "Updating and running the automation task"
-:: curl -v -X PUT  https://prod-vortexapi.zephyr4jiracloud.com/api/v1/automation/job/updateAndExecute  -H "Content-Type: multipart/form-data" -H "Content-Type: application/json" -H "accessKey: %$accessKey%" -H "jwt: %$finaljwt%"  -F "jobId=%$taskId%" -F "jobName=%$taskName%" -F "jobDescription=%$taskDescription%" -F "automationFramework=%$automationFramework%" -F "versionName=%$versionName%" -F "cycleName=%$cycleName%" -F "createNewCycle=%$createNewCycle%" -F "appendDateTimeInCycleName=%$appendDateTimeInCycleName%" -F "folderName=%$folderName%" -F "createNewFolder=%$createNewFolder%" -F "appendDateTimeInFolderName=%$appendDateTimeInFolderName%" -F "assigneeUser=%$assigneeUser%" -F "file=%$resultPath%"
