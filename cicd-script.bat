@@ -40,6 +40,8 @@ set "$taskDescription=Execute an API with pytest "
 set "$automationFramework=junit"
 set "$projectKey=PLY"
 set "$versionName=Unscheduled"
+set "$mandatoryFields={\"components\":[{\"label\":\"Player\",\"value\":\"PLY-6507\",\"content\":\"Test Trainees\"}],\"reporter\":{\"label\":\"Alan Javier Cañellas\",\"name\":\"Alan Javier Cañellas\",\"id\":\"635fce5a76b91b62562edfc9\"}}"
+
 
 :: Cycle info
 set "$cycleName=Test Trainees"
@@ -60,7 +62,7 @@ set "$resultPath=@\"C:\Users\canellasa\Documents\testtrainees\result.xml\"
 ::  Keep this section as it is.
 :: =========================================
 echo "Creating and running an automation task ..."
-curl -v -X POST  https://prod-vortexapi.zephyr4jiracloud.com/api/v1/automation/job/saveAndExecute  -H "Content-Type: multipart/form-data" -H "Content-Type: application/json" -H "accessKey: %$accessKey%" -H "jwt: %$finaljwt%" -F "jobName=%$taskName%" -F "jobDescription=%$taskDescription%" -F "automationFramework=%$automationFramework%" -F "projectKey=%$projectKey%" -F "versionName=%$versionName%" -F "cycleName=%$cycleName%" -F "createNewCycle=%$createNewCycle%" -F "appendDateTimeInCycleName=%$appendDateTimeInCycleName%" -F "folderName=%$folderName%" -F "createNewFolder=%$createNewFolder%" -F "appendDateTimeInFolderName=%$appendDateTimeInFolderName%" -F "assigneeUser=%$assigneeUser%" -F "file=%$resultPath%"
+curl -v -X POST  https://prod-vortexapi.zephyr4jiracloud.com/api/v1/automation/job/saveAndExecute  -H "Content-Type: multipart/form-data" -H "Content-Type: application/json" -H "accessKey: %$accessKey%" -H "jwt: %$finaljwt%" -F "jobName=%$taskName%" -F "jobDescription=%$taskDescription%" -F "automationFramework=%$automationFramework%" -F "projectKey=%$projectKey%" -F "versionName=%$versionName%" -F "cycleName=%$cycleName%" -F "createNewCycle=%$createNewCycle%" -F "appendDateTimeInCycleName=%$appendDateTimeInCycleName%" -F "folderName=%$folderName%" -F "createNewFolder=%$createNewFolder%" -F "appendDateTimeInFolderName=%$appendDateTimeInFolderName%" -F "assigneeUser=%$assigneeUser%" -F "file=%$resultPath%" -F "mandatoryFields=%$mandatoryFields%"
 
 
 :: =========================================
@@ -72,4 +74,6 @@ curl -v -X POST  https://prod-vortexapi.zephyr4jiracloud.com/api/v1/automation/j
 ::  To run the code below, first comment out the lines 62-63 above that create your automation task, 
 ::  and then uncomment in the lines below.
 :: =========================================
+
+
 
